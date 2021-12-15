@@ -12,6 +12,7 @@ Faker::Name.unique.clear # Clears used values for Faker::Name
 
 Product.delete_all
 Supplier.delete_all
+Provinc.delete_all
 
 15.times do
 
@@ -22,6 +23,10 @@ Supplier.delete_all
     product = supplier.products.create(title: Faker::Creature::Horse.name, brand: Faker::Appliance.brand,
 
                                          price: Faker::Number.decimal)
+    query = URI.encode_www_form_component([product.title, supplier.name].join(","))
+    download_image = URI.open("https://source.unsplash.com/600x600/?#{query}")
+    product.image.attach(io: download_image, filename: "m-#{[product.title, supplier.name].join('-')}.jpg")
+    sleep(1)
 
   end
 end
