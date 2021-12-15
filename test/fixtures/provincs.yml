@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  pst: 9.99
+  hst: 9.99
+
+two:
+  name: 
+  pst: 9.99
+  hst: 9.99

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_14_202912) do
+ActiveRecord::Schema.define(version: 2021_12_15_003627) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(version: 2021_12_14_202912) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "customers", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "address"
+    t.string "postalcode"
+    t.integer "province_id"
+    t.string "email"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "title"
     t.string "brand"
@@ -48,9 +59,40 @@ ActiveRecord::Schema.define(version: 2021_12_14_202912) do
     t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end
 
+  create_table "provinces", force: :cascade do |t|
+    t.decimal "gst"
+    t.decimal "pst"
+    t.decimal "hst"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "provincs", force: :cascade do |t|
+    t.string "name"
+    t.decimal "pst"
+    t.decimal "hst"
+    t.decimal "gst"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.decimal "gsst"
+  end
+
   create_table "suppliers", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "usergis", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "usernamodule"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

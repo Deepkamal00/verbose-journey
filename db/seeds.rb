@@ -9,10 +9,6 @@
 
 Faker::Name.unique.clear # Clears used values for Faker::Name
 
-# Author.delete_all
-# Novel.delete_all
-# Genre.delete_all
-# Novelgenre.delete_all
 
 Product.delete_all
 Supplier.delete_all
@@ -29,3 +25,20 @@ Supplier.delete_all
 
   end
 end
+
+Provinc.create({ name: 'Manitoba', pst: '7', hst: '0', gst: '5' })
+Provinc.create({ name: 'Alberta', gst: '5', pst: '0', hst: '0' })
+Provinc.create({ name: 'British Columbia', gst: '5', pst: '7', hst: '0' })
+Provinc.create({ name: 'New Brunswick', gst: '0', pst: '0', hst: '15' })
+Provinc.create({ name: 'New Foundland and Labrador', gst: '0', pst: '0', hst: '15' })
+Provinc.create({ name: 'NorthWest Territories', gst: '5', pst: '0', hst: '0' })
+Provinc.create({ name: 'NovaScotia', gst: '0', pst: '0', hst: '15' })
+Provinc.create({ name: 'Nunavut', gst: '5', pst: '0', hst: '0' })
+Provinc.create({ name: 'Ontario', gst: '0', pst: '0', hst: '13' })
+Provinc.create({ name: 'Prince Edward Island', gst: '0', pst: '0', hst: '15' })
+Provinc.create({ name: 'New Foundland and Labrador', gst: '0', pst: '0', hst: '15' })
+Provinc.create({ name: 'NorthWest Territories', gst: '5', pst: '0', hst: '0' })
+Provinc.create({ name: 'NovaScotia', gst: '0', pst: '0', hst: '15' })
+Provinc.create({ name: 'Nunavut', gst: '5', pst: '0', hst: '0' })
+Provinc.create({ name: 'Ontario', gst: '0', pst: '0', hst: '13' })
+Provinc.create({ name: 'Prince Edward Island', gst: '0', pst: '0', hst: '15' })
