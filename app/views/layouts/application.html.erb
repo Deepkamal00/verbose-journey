@@ -11,6 +11,15 @@
   </head>
 
   <body>
+    <h1>Online Shopping</h1>
+    <h3>Here you can buy high quality products at a low price.</h3>
+
+    <ul>
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'About Us', about_index_path %></li>
+      <li><%= link_to 'Contact Us', contact_index_path %></li>
+      <li><%= link_to 'Our Suppliers', suppliers_path %></li>
+    </ul>
     <%= yield %>
   </body>
 </html>

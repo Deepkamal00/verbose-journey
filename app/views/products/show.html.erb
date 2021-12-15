@@ -15,5 +15,15 @@
   <%= @product.price %>
 </p>
 
+<div>
+  <% if @product.image.presesnt? %>
+    <div class="card-image">
+      <figure class="image">
+        <%= image_tag @product.image%>
+      </figure>
+    </div>>
+    <% end %>
+</div>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

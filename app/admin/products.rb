@@ -5,7 +5,16 @@ ActiveAdmin.register Product do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :title, :brand, :price
+   permit_params :title, :brand, :price, :image
+
+   form do |f|
+    f.semantic_errors
+    f.inputs
+    f.inputs do
+      f.input :image, hint: f.object.image.present? ? image_tag(f.object.image) : ""
+    end
+    f.actions
+   end
   #
   # or
   #

@@ -7,9 +7,7 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(sign_up_params)
         if @customer.save
-          flash[:notice] = "User created"
-
-         redirect_to root
+          redirect_to root_path
         else
           render 'new'
         end
