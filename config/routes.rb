@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :people
   get 'pages/:permalink' => "pages#permalink", as: 'permalink'
   resources :provincs
   devise_for :admin_users, ActiveAdmin::Devise.config
