@@ -12,5 +12,4 @@ class ApplicationController < ActionController::Base
     Product.find(session[:shopping_cart])
   end
 
-  end
 end
