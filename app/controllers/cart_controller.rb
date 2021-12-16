@@ -9,6 +9,8 @@ class CartController < ApplicationController
   end
 
   def destroy
-
+    product = Product.find(params[:id])
+    flash[:notice] ="#{product.title} removed from the cart."
+    redirect_to root_path
   end
 end

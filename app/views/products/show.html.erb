@@ -30,9 +30,15 @@
   $<%=  @product.price %>
 </p>
 
-<%= form_with url: cart_index_path, method: :post do%>
-<%= hidden_field_tag(:id, @product.id)%>
-<%= button_tag 'Add to Cart'%>
-<%end%>
+<% if cart.include?(@product)%>
+  <%= button_to cart_path(@product), method: :delete do %>
+    Remove From Cart
+  <% end %>
+<% else %>
+  <%= form_with url: cart_index_path, method: :post do%>
+    <%= hidden_field_tag(:id, @product.id)%>
+    <%= button_tag 'Add to Cart'%>
+  <%end%>
+<% end %>
 
 <%= link_to 'Back', products_path %>
