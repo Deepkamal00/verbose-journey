@@ -8,6 +8,9 @@ class SuppliersController < ApplicationController
 
   # GET /suppliers/1 or /suppliers/1.json
   def show
+    isuppliers = Supplier.find(params[:id])
+
+    @products = Product.where(supplier_id: isuppliers)
   end
 
   # GET /suppliers/new

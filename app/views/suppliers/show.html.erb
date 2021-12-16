@@ -10,5 +10,12 @@
   <%= @supplier.email %>
 </p>
 
-<%= link_to 'Edit', edit_supplier_path(@supplier) %> |
+<p>
+  <strong>Products:</strong>
+  <br>
+  <% @products.each do |product|%>
+  <%= link_to product.title, product%>
+  <br>
+  <%end%>
+</p>
 <%= link_to 'Back', suppliers_path %>

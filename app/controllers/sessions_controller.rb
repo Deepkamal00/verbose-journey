@@ -1,7 +1,11 @@
 class SessionsController < ApplicationController
 
+  def new
+
+  end
+
   def create
-    customer = customer.find_by(email: params[:session][:email].downcase)
+    customer = Customer.find_by(email: params[:session][:email].downcase)
     if customer && customer.authenticate(params[:session][:password])
       session[:customer_id] = customer.id
       redirect_to root_path
