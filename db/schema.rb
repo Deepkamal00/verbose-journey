@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_16_091623) do
+ActiveRecord::Schema.define(version: 2021_12_16_091818) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -66,15 +66,8 @@ ActiveRecord::Schema.define(version: 2021_12_16_091623) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "customers", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "address"
-    t.string "postalcode"
-    t.string "email"
-  end
+# Could not dump table "customers" because of following StandardError
+#   Unknown type 'refernces' for column 'provinc'
 
   create_table "pages", force: :cascade do |t|
     t.string "title"
