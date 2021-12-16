@@ -24,7 +24,7 @@
 
 <div class="field">
   <%= f.label :province_id %><br/>
-  <%= f.select :province_id, Provinc.order(:name)  %>
+  <%= f.collection_select :province_id, Provinc.order(:name), :id, :name  %>
 </div>
 
 <div class="form-group">
