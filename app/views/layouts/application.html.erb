@@ -28,6 +28,18 @@
       <li class="nav-item active">
       <%= link_to "Suppliers ", suppliers_path%>&nbsp;&nbsp;<span class="sr-only"></span>
       </li>
+      <% if person_signed_in? %>
+        <li class="nav-item active">
+        <%= link_to "Sign out ", destroy_person_session_path, method: :delete %>&nbsp;&nbsp;<span class="sr-only"></span>
+        </li>
+      <%else%>
+        <li class="nav-item active">
+        <%= link_to "Sign up ", new_person_registration_path%>&nbsp;&nbsp;<span class="sr-only"></span>
+        </li>
+        <li class="nav-item active">
+        <%= link_to "Sign in ", new_person_session_path%>&nbsp;&nbsp;<span class="sr-only"></span>
+        </li>
+      <%end%>
     </ul>
   </div>
 </nav>
