@@ -33,6 +33,8 @@ gem 'image_processing'
 gem 'activeadmin'
 gem 'devise'
 
+gem 'stripe'
+
 gem 'kaminari'
 
 group :development, :test do
