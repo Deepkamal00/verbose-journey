@@ -9,7 +9,10 @@ class CartController < ApplicationController
   end
 
   def destroy
-    product = Product.find(params[:id])
+    logger.debug("Removing #{params[:id]} from cart.")
+    id = params[:id].to_i
+    session[:shopping_cart].delete(id)
+    product = Product.find(id)
     flash[:notice] ="#{product.title} removed from the cart."
     redirect_to root_path
   end
