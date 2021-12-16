@@ -35,6 +35,8 @@ gem 'devise'
 
 gem 'stripe'
 
+gem 'rubocop'
+
 gem 'kaminari'
 
 group :development, :test do
