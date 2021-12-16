@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :people
   get 'pages/:permalink' => "pages#permalink", as: 'permalink'
+  resources :cart, only:%i[create destroy]
   resources :provincs
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
