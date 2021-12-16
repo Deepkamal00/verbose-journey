@@ -5,8 +5,14 @@ class SessionsController < ApplicationController
   end
 
   def create
+    begin
+      # your code that attempts to login the user
+  rescue BCrypt::Errors::InvalidHash
+    flash[:error] = 'We recently adjusted the way our passwords are stored. Please click the "forgot username or password?" link to re-establish your password. Thank you for your understanding!'
+    redirect_to password_resets_url
+  end
     customer = Customer.find_by(email: params[:session][:email].downcase)
-    if customer && customer.authenticate(params[:session][:password])
+    if customer && customer.authenticate(params[:session][:password_digest])
       session[:customer_id] = customer.id
       redirect_to root_path
     else

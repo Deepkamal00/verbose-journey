@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'pages/show'
+  get 'pages/:permalink' => "pages#permalink", as: 'permalink'
   get 'contact/index'
   get 'contact/show'
   get 'about/index'

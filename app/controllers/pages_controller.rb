@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
-  def show
+
+  def permalink
+    @page = Page.find_by(permalink: params[:permalink])
   end
 end
