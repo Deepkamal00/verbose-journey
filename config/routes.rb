@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
   get 'pages/:permalink' => "pages#permalink", as: 'permalink'
-  get 'contact/index'
-  get 'contact/show'
-  get 'about/index'
-  get 'about/show'
   resources :provincs
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

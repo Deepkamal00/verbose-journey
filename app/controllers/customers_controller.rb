@@ -14,11 +14,11 @@ class CustomersController < ApplicationController
   end
 
   def sign_up_params
-    params.require(:customer).permit(:username, :address, :postalcode, :email, :password_digest, :provinc)
+    params.require(:customer).permit(:username, :address, :postalcode, :email, :password, :provinc)
   end
 
   def account_update_params
-    params.require(:customer).permit(:username, :address, :postalcode, :email, :password_digest, :provinc)
+    params.require(:customer).permit(:username, :address, :postalcode, :email, :password, :provinc)
   end
 
 end

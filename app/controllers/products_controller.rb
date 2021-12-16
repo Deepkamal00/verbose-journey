@@ -4,6 +4,10 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     @products = Product.order("title").page(params[:page]).per(15)
+
+    session[:visit_count] ||= 0
+    session[:visit_count] += 1
+    @visit_count = session[:visit_count]
   end
 
   # GET /products/1 or /products/1.json
