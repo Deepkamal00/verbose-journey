@@ -1,32 +1,9 @@
-<p id="notice"><%= notice %></p>
+<h1 style="color:blue;">Products</h1>
+<div class="row">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Brand</th>
-      <th>Supplier</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= paginate @products%>
 
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= link_to product.title, product %></td>
-        <td><%= product.brand%></td>
-        <td><%= link_to product.supplier.name, suppliers_path%></td>
-        <td>$<%= product.price %></td>
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<%= paginate @products %>
-
-<br>
-
-<%= link_to 'New Product', new_product_path %>
+<% @products.each do |product| %>
+<%= render :partial => 'products', locals: {product: product} %>
+<% end %>
+</div>

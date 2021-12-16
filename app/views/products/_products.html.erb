@@ -1,0 +1,27 @@
+<div class="col-sm-3">
+<div class="card">
+      <div class="card-body">
+
+          <p class="card-title"><span style="font-weight:bold" >Product: </span><%= link_to product.title, product  %></p>
+
+          <p class="card-text"><span style="font-weight:bold" >Supplier:</span> <%=link_to product.supplier.name, product.supplier%></p>
+          <p class="card-text"><span style="font-weight:bold" >Price:<%= number_to_currency product.price %></p>
+
+        <p class="card-text">
+          <% if product.image.present? %>
+              <%= image_tag product.image%>
+          <% end %>
+        </p>
+<% if cart.include?(product) %>
+          <%= button_to cart_path(product),method: :delete , data: { confirm:"Are you sure?" } do%>
+          Remove from cart
+        <% end %>
+      <% else %>
+        <%= form_with url: cart_index_path, method: :post do %>
+          <%= hidden_field_tag(:id,product.id)%>
+          <%= button_tag 'Add to cart'%>
+        <% end %>
+        <%end%>
+      </div>
+   </div>
+  </div>
