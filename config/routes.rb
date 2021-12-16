@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :people
   get 'pages/:permalink' => "pages#permalink", as: 'permalink'
   resources :cart, only:%i[create destroy]
+
   resources :provincs
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -11,6 +12,11 @@ Rails.application.routes.draw do
 
 root to:"products#index"
 
+scope "checkouy" do
+  post "create", to: "checkouy#create", as: "checkout_create"
+  get "success", to: "checkouy#success", as: "checkout_success"
+  get "cancel", to: "checkouy#cancel", as: "checkout_cancel"
+end
 
   get "signup", to: "customers#new"
   get "login", to: "sessions#new"
